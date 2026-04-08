@@ -1,70 +1,40 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WebProgramming 05
 
-## Available Scripts
+# 상태 (State)
 
-In the project directory, you can run:
+- 렌더링 결과물에 영향을 주는 정보
 
-### `npm start`
+- 간단히 말하면 변수, 하지만 const let 등으로 선언한 변수랑은 다르게 값이 변하면 관련있는 컴포넌트들이 재렌더링되어 화면이 바뀐다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- state는 컴포넌트의 내부에서 변경 가능한 데이터를 다루기 위해 사용하는 객체
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 일반적으로 컴포넌트의 내부에서 변경 가능한 데이터를 관리해야할 때 사용.
 
-### `npm test`
+- props(프로퍼티)의 특징은 컴포넌트 내부에서 값을 바꿀 수 없다
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 하지만 값을 바꿔야 하는 경우도 있으니, 이럴 때는 state라는 것을 사용한다.
+  
+- 개발자가 의도한 동작에 의해 변할 수도 있고, 사용자의 입력에 따라 새로운 값으로 변경될 수도 있다.
+  
+- state 값이 변경되고 재 렌더링이 필요한 경우, React가 자동으로 계산해서 변경된 부분을 렌더링 함.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# setState는 비동기적으로 작동한다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 동기
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 요청을 보냈다면, 응답을 받아야 다음 동작이 이루어진다.
 
-### `npm run eject`
+- 순차적으로 실행되기 때문에, 어떤 작업이 수행중이라면 다음 작업은 대기해야한다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 블로킹(작업중단)이 발생한다.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 비동기
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 작업 종료 여부에 관계없이 다음 작업을 실행한다.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- 그러므로 동기 방식과는 달리 실행 순서를 보장하지 않는다.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 블로킹이 발생하지 않는다
